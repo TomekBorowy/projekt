@@ -1,0 +1,98 @@
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+<link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
+<link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<script defer src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
+<script defer src="https://unpkg.com/filepond-plugin-file-encode/dist/filepond-plugin-file-encode.js"></script>
+<script defer src="https://unpkg.com/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.js"></script>
+<script defer src="https://unpkg.com/filepond/dist/filepond.js"></script>
+<script defer src="/javascripts/fileUpload.js"></script>
+<%- include("partials/header-add.ejs") %>
+<div class="kontoSite">
+    <div class="addFrame">
+
+        <form method="POST">
+            <h1 class="powitanie">Dodaj ogłoszenie</h1>
+            <p><label>Tytuł:*</label><br>
+                <input class="logInput" type="text" name="title" />
+            </p>
+            <p><label>Kategoria:*</label><br>
+                <select class="logInput" type="text" name="category">
+                    <option selected disabled>wybierz</option>
+                    <option>Owoce</option>
+                    <option>Warzywa</option>
+                    <option>Wypieki</option>
+                    <option>Miód</option>
+                    <option>Nabiał</option>
+                    <option>Jajka</option>
+                    <option>Mięso</option>
+                    <option>Sypkie</option>
+                    <option>Przyprawy</option>
+                    <option>Grzyby</option>
+                    <option>Przetwory</option>
+                    <option>Inne</option>
+
+
+                </select>
+            </p>
+            <p>
+                <label>Opis:</label><br>
+                <textarea class="logInput" name="description"></textarea>
+            </p>
+            <p><label>Cena:</label><br>
+                <input class="logInput" type="text" name="price" />
+            </p>
+            <p><label>Miejscowość:*</label><br>
+                <input class="logInput" type="text" name="place" />
+            </p>
+            <p><label>Województwo:*</label><br>
+                <select class="logInput" type="text" name="province">
+                    <option selected disabled>wybierz</option>
+                    <option>dolnośląsie</option>
+                    <option>kujawsko-pomorskie</option>
+                    <option>lubelskie</option>
+                    <option>lubuskie</option>
+                    <option>łódzkie</option>
+                    <option>małopolskie</option>
+                    <option>mazowieckie</option>
+                    <option>opolskie</option>
+                    <option>podkarpackie</option>
+                    <option>podlaskie</option>
+                    <option>pomorskie</option>
+                    <option>śląskie</option>
+                    <option>świętokrzystkie</option>
+                    <option>warmińsko-mazurskie</option>
+                    <option>wielkopolskie</option>
+                    <option>zachodniopomorskie</option>
+
+
+                </select>
+            </p>
+            <p><label>E-mail:*</label><br>
+                <input class="logInput" type="text" name="email" value="<%= user.email %>" />
+            </p>
+            <p><label>Numer telefonu:</label><br>
+                <input class="logInput" type="text" name="telNumber" />
+            </p>
+
+
+            <p>
+                <input type="text" name="user" hidden value="<%= user.name %>" />
+                <input type="text" name="userid" hidden value="<%= user._id %>" />
+                <br>
+                <p class="obowiazkowe">Pola oznaczone * są obowiązkowe</p>
+                <br>
+                <p class="obowiazkowe">Zdjęcia max.10Mb, dozwolone pliki .jpg, .png, .gif</p>
+                <p class="obowiazkowe">preferowane wymiary 150x220 px</p>
+            </p>
+            <p><label>Zdjęcie:*</label><br>
+
+                <input type="file" name="image" class="filepond" />
+            </p>
+            <p>
+                <input class="logButton" type="submit" value='Zapisz' />
+            </p>
+        </form>
+    </div>
+</div>

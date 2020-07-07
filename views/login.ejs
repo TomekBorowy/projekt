@@ -1,0 +1,27 @@
+<%- include("partials/header-login.ejs") %>
+
+<div class="loginSite">
+    <div class="loginFrame">
+        <h1> Witaj na Bazarku Rolnika !</h1>
+        <h3>Zaloguj się do konta użytkownika</h3>
+
+        <form class="logForm" action="/users/login" method="POST">
+            <div>
+                <label for="email">Email:</label><br>
+                <input class="logInput" type="email" id="email" name="email" placeholder="Wprowadź email" />
+            </div>
+            <div>
+                <label for="password">Hasło:</label><br>
+                <input class="logInput" type="password" id="password" name="password" placeholder="Wprowadź hasło" />
+            </div>
+            <div class="logbutt">
+                <button class="logButton" type="submit">Zaloguj</button>
+            </div>
+        </form>
+        <p>
+            Nie posiadasz jeszcze konta? <br>
+            Załóż je rejestrując się na portalu:
+            <a href="/users/register">Rejestracja</a>
+        </p>
+    </div>
+</div>

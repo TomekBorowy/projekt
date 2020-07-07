@@ -1,0 +1,36 @@
+<%- include("partials/header-main.ejs") %>
+<div class="search">
+    <form id="searchForm" method='get'>
+        <input id="search" type='text' value='<%= search %>' name='search' />
+        <input id="searchButton" type='submit' value='Szukaj' />
+    </form>
+</div>
+<main>
+    <% data.forEach(advData =>  { %>
+    <div class="advertMain">
+
+        <div class="fotoMain">
+            <img height="150" width="100%" src="<%= advData.imagePath %>">
+        </div>
+        <div class="opis">
+            <div><label>KATEGORIA: </label><%= advData.category %></div>
+            <div><label>TYTUŁ: </label><%= advData.title %></div>
+            <div class="opis2"><label>OPIS: </label><%= advData.description %></div>
+            <div class="bottomadvert">
+
+                <div class="place"><%= advData.place %><span> / </span><%= advData.province %></div>
+                <div class="data"><%= (advData.created).toISOString().slice(0, 11).replace('T', '')%></div>
+            </div>
+        </div>
+        <div class="kontakt">
+            <div class="kontakt2">
+                <div><label>Sprzedawca: </label><%= advData.user %></div>
+                <div><label>Tel: </label><%= advData.telNumber %></div>
+                <div><label>E-mail: </label><%= advData.email %></div>
+            </div>
+            <div class="cena"><label>Cena: </label><%= advData.price %></div>
+        </div>
+
+    </div>
+    <% }) %>
+</main>

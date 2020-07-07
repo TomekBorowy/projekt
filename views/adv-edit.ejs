@@ -1,0 +1,82 @@
+<%- include("partials/header-add.ejs") %>
+<div class="kontoSite">
+    <div class="addFrame">
+
+        <form method="POST">
+            <h1 class="powitanie">Edytuj ogłoszenie</h1>
+            <p><label>Tytuł:*</label><br>
+                <input class="logInput" type="text" name="title" value="<%= data.title %>" />
+            </p>
+            <p><label>Kategoria:*</label><br>
+                <select class="logInput" type="text" name="category">
+
+                    <option <%= data.category == "Owoce" ? "selected" : "" %>>Owoce</option>
+                    <option <%= data.category == "Warzywa" ? "selected" : "" %>>Warzywa</option>
+                    <option <%= data.category == "Wypieki" ? "selected" : "" %>>Wypieki</option>
+                    <option <%= data.category == "Miód" ? "selected" : "" %>>Miód</option>
+                    <option <%= data.category == "Nabiał" ? "selected" : "" %>>Nabiał</option>
+                    <option <%= data.category == "Jajka" ? "selected" : "" %>>Jajka</option>
+                    <option <%= data.category == "Mięso" ? "selected" : "" %>>Mięso</option>
+                    <option <%= data.category == "Sypkie" ? "selected" : "" %>>Sypkie</option>
+                    <option <%= data.category == "Przyprawy" ? "selected" : "" %>>Przyprawy</option>
+                    <option <%= data.category == "Grzyby" ? "selected" : "" %>>Grzyby</option>
+                    <option <%= data.category == "Przetwory" ? "selected" : "" %>>Przetwory</option>
+                    <option <%= data.category == "Inne" ? "selected" : "" %>>Inne</option>
+                </select>
+            </p>
+            <p>
+                <label>Opis</label><br>
+                <textarea class="logInput" name="description"><%= data.description%></textarea>
+            </p>
+            <p><label>Cena</label><br>
+                <input class="logInput" type="text" name="price" value="<%= data.price %>" />
+            </p>
+            <p><label>Miejscowość:*</label><br>
+                <input class="logInput" type="text" name="place" value="<%= data.place %>" />
+            </p>
+            <p><label>Województwo:*</label><br>
+                <select class="logInput" type="text" name="province">
+
+                    <option <%= data.province == "dolnośląsie" ? "selected" : "" %>>dolnośląsie</option>
+                    <option <%= data.province == "kujawsko-pomorskie" ? "selected" : "" %>>kujawsko-pomorskie</option>
+                    <option <%= data.province == "lubelskie" ? "selected" : "" %>>lubelskie</option>
+                    <option <%= data.province == "lubuskie" ? "selected" : "" %>>lubuskie</option>
+                    <option <%= data.province == "łódzkie" ? "selected" : "" %>>łódzkie</option>
+                    <option <%= data.province == "małopolskie" ? "selected" : "" %>>małopolskie</option>
+                    <option <%= data.province == "mazowieckie" ? "selected" : "" %>>mazowieckie</option>
+                    <option <%= data.province == "opolskie" ? "selected" : "" %>>opolskie</option>
+                    <option <%= data.province == "podkarpackie" ? "selected" : "" %>>podkarpackie</option>
+                    <option <%= data.province == "podlaskie" ? "selected" : "" %>>podlaskie</option>
+                    <option <%= data.province == "pomorskie" ? "selected" : "" %>>pomorskie</option>
+                    <option <%= data.province == "śląskie" ? "selected" : "" %>>śląskie</option>
+                    <option <%= data.province == "świętokrzystkie" ? "selected" : "" %>>świętokrzystkie</option>
+                    <option <%= data.province == "warmińsko-mazurskie" ? "selected" : "" %>>warmińsko-mazurskie</option>
+                    <option <%= data.province == "wielkopolskie" ? "selected" : "" %>>wielkopolskie</option>
+                    <option <%= data.province == "zachodniopomorskie" ? "selected" : "" %>>zachodniopomorskie</option>
+
+
+                </select>
+            </p>
+            <p><label>E-mail:*</label><br>
+                <input class="logInput" type="text" name="email" value="<%= user.email %>" />
+            </p>
+            <p><label>Numer telefonu:</label><br>
+                <input class="logInput" type="text" name="telNumber" value="<%= data.telNumber %>" />
+            </p>
+
+            <p>
+                <input type="text" name="user" hidden value="<%= user.name %>" />
+                <input type="text" name="userid" hidden value="<%= user._id %>" />
+            </p>
+            <br>
+            <p class="obowiazkowe">Pola oznaczone * są obowiązkowe</p>
+            <br>
+            <!-- <p><label>Zdjęcie:*</label>
+                <input type="file" name="image" class="filepond" />
+            </p> -->
+            <p>
+                <input class="logButton" type="submit" value='Zapisz' />
+            </p>
+        </form>
+    </div>
+</div>

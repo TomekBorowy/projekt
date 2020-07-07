@@ -1,0 +1,77 @@
+<%- include("partials/header-konto.ejs") %>
+
+<!-- <div><a href="/users/logout">Wyloguj</a></div> -->
+<!-- <div>
+    <% data.forEach(advData => { %>
+    <img height="150" width="100" src="<%= advData.imagePath %>">
+    <% }) %>
+</div> -->
+<div class="kontoSite">
+    <div class="kontoFrame">
+
+        <h2 class="powitanie">Witaj <%= user.name %> na Bazarku Rolnika! </h2>
+
+        <button class="addadvert"><a style="text-decoration: none;" href="/adv/add">Dodaj ogłoszenie</a></button>
+        <h2>Moje ogłoszenia:</h2>
+        <div class="table">
+            <table>
+                <!-- <tr class="lista">
+                    <th>Lp</th>
+                    <th>Tytuł</th>
+                    <th>Cena</th>
+                    <th>Data dodania</th>
+                </tr> -->
+
+                <!-- <tr class="lista">
+
+                    <% data.forEach(function(item, index ) { %>
+                    <td><%= index + 1 %></td>
+                    <td><%= item.title %></td>
+                    <td><%= item.price %></td>
+                    <td><%= (item.created).toISOString().slice(0, 11).replace('T', '') %></td>
+                    <td class="advline"><a style="text-decoration: none; color: black;"
+                            href="/adv/edit/<%= item._id %>">Edytuj</a></td>
+                    <td class="advline"><a style="text-decoration: none; color: black;"
+                            href="/adv/delete/<%= item._id %>">Usuń</a></td>
+                    <% }) %>
+                </tr> -->
+                <% data.forEach(function(item, index ){ %>
+                <div class="advertMain">
+
+                    <div class="fotoMain">
+                        <img height="150" width="100%" src="<%= item.imagePath %>">
+                    </div>
+                    <div class="opis">
+                        <div><label>KATEGORIA: </label><%= item.category %></div>
+                        <div><label>TYTUŁ: </label><%= item.title %></div>
+                        <div class="opis2"><label>OPIS: </label><%= item.description %></div>
+                        <div class="bottomadvert">
+
+                            <div class="place"><%= item.place %><span> / </span><%= item.province %></div>
+                            <div class="data"><%= (item.created).toISOString().slice(0, 11).replace('T', '')%></div>
+                        </div>
+                    </div>
+                    <div class="kontakt">
+                        <div class="kontakt2">
+                            <div><label>Sprzedawca: </label><%= item.user %></div>
+                            <div><label>Tel: </label><%= item.telNumber %></div>
+                            <div><label>E-mail: </label><%= item.email %></div>
+                        </div>
+                        <div class="cena"><label>Cena: </label><%= item.price %></div>
+                    </div>
+                    <div class="akcja">
+                        <div class="advline"><a style="text-decoration: none; color: black;"
+                                href="/adv/edit/<%= item._id %>">Edytuj</a>
+                        </div>
+                        <div class="advline"><a style="text-decoration: none; color: black;"
+                                href="/adv/delete/<%= item._id %>">Usuń</a>
+                        </div>
+                    </div>
+                </div>
+                <% }) %>
+
+
+            </table>
+        </div>
+    </div>
+</div>
